@@ -33,4 +33,12 @@ class DownloaderServiceSpec extends Specification {
     downloader.address == '127.0.0.1'
     downloader.type == InstallerType.WINDOWS
   }
+
+  void "should create a ubuntu linux stat"() {
+    when:
+    def downloader = service.createLinuxStat('127.0.0.1')
+    then:
+    downloader.address == '127.0.0.1'
+    downloader.type == InstallerType.LINUX
+  }
 }

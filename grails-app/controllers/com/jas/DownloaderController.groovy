@@ -7,7 +7,12 @@ class DownloaderController {
   def downloadUbuntuVersion(){
     log.info "Registring Ubuntu stat from: " + request.getRemoteAddr()
     downloaderService.createUbuntuStat(request.getRemoteAddr())
-    render request.getRemoteAddr()
+    def file = new File("file.pdf")    
+    log.info "path file: " + file.getAbsolutePath()
+    response.setContentType("application/octet-stream")
+    response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
+
+    response.outputStream << file.newInputStream()
   }
 
   def downloadMacVersion() {

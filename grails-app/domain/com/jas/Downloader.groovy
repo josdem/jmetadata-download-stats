@@ -8,4 +8,9 @@ class Downloader {
   static constraints = {
     address blank:false,size:5..255
   }
+
+  static mapping = {
+    version false
+  }
+
 }

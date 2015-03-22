@@ -1,7 +1,4 @@
 .classpath
 .project
 target
-test/unit/com/jas/.DownloaderControllerSpec.groovy.swp
-grails-app/controllers/com/jas/.DownloaderController.groovy.swp
-grails-app/domain/com/jas/.Downloader.groovy.swp
-grails-app/services/com/jas/.DownloaderService.groovy.swp
+*.swp

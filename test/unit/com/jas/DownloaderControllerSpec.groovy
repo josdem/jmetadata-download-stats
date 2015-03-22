@@ -23,4 +23,13 @@ class DownloaderControllerSpec extends Specification {
     1 * downloaderService.createUbuntuStat(address)
     response.text == address
   }
+
+  void "should download Mac"() {
+    when: 
+    controller.downloadMacVersion()
+   
+    then:
+    1 * downloaderService.createMacStat(address)
+    response.text == address
+  }
 }

@@ -13,4 +13,11 @@ class DownloaderService {
     return downloader
   }
 
+  def Downloader createMacStat(String address){
+    def downloader = new Downloader()
+    downloader.address = address
+    downloader.type = InstallerType.MAC
+    downloader.save()
+    return downloader
+  }
 }

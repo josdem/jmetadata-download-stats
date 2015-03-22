@@ -10,4 +10,10 @@ class DownloaderController {
     render request.getRemoteAddr()
   }
 
+  def downloadMacVersion() {
+   log.info "Registring mac stat from: " + request.getRemoteAddr()
+   downloaderService.createMacStat(request.getRemoteAddr())
+   render request.getRemoteAddr()
+  }
+
 }

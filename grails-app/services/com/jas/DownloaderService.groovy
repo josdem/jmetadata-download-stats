@@ -6,25 +6,21 @@ import grails.transaction.Transactional
 class DownloaderService {
 
   def Downloader createUbuntuStat(String address){
-    def downloader = new Downloader()
-    downloader.address = address
-    downloader.type = InstallerType.UBUNTU
-    downloader.save()
-    return downloader
+    return saveDownloader(address, InstallerType.UBUNTU)
   }
 
   def Downloader createMacStat(String address){
-    def downloader = new Downloader()
-    downloader.address = address
-    downloader.type = InstallerType.MAC
-    downloader.save()
-    return downloader
+    return saveDownloader(address, InstallerType.MAC)
   }
 
   def Downloader createWindowsStat(String address){
+     return saveDownloader(address, InstallerType.WINDOWS)
+  }
+
+  def Downloader saveDownloader(String address, InstallerType type){
     def downloader = new Downloader()
     downloader.address = address
-    downloader.type = InstallerType.WINDOWS
+    downloader.type = type
     downloader.save()
     return downloader
   }

@@ -1,5 +1,5 @@
 package com.jas
 
 enum InstallerType {
-  Ubuntu, Mac, Windows, Linux
+  UBUNTU, MAC, WINDOWS, LINUX
 }

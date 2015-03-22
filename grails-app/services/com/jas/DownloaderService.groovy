@@ -17,6 +17,10 @@ class DownloaderService {
      return saveDownloader(address, InstallerType.WINDOWS)
   }
 
+  def Downloader createLinuxStat(String address){
+     return saveDownloader(address, InstallerType.LINUX)
+  }
+
   def Downloader saveDownloader(String address, InstallerType type){
     def downloader = new Downloader()
     downloader.address = address

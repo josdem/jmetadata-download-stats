@@ -22,4 +22,11 @@ class DownloaderController {
     render request.getRemoteAddr()
   }
 
+  def downloadLinuxVersion() {
+    log.info "Registring Linux stat from: " + request.getRemoteAddr()
+    downloaderService.createLinuxStat(request.getRemoteAddr())
+    render request.getRemoteAddr()
+  }
+
+
 }

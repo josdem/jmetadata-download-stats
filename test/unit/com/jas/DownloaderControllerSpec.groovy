@@ -42,4 +42,13 @@ class DownloaderControllerSpec extends Specification {
     response.text == address
   }
 
+  void "should download Linux"() {
+    when: 
+    controller.downloadLinuxVersion()
+   
+    then:
+    1 * downloaderService.createLinuxStat(address)
+    response.text == address
+  }
+
 }

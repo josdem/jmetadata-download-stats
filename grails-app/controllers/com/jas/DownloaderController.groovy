@@ -1,7 +1,7 @@
 package com.jas
 
 class DownloaderController {
-  def hello(){
-    render "hello"
+  def downloadUbuntuVersion(){
+    render "ubuntu"
   }
 }

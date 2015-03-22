@@ -9,11 +9,11 @@ import spock.lang.Specification
 @TestFor(DownloaderController)
 class DownloaderControllerSpec extends Specification {
 
-  void "should say hello"() {
+  void "should download Ubuntu"() {
     when:
-    controller.hello()
+    controller.downloadUbuntuVersion()
 
     then:
-    response.text == 'hello'
+    response.text == 'ubuntu'
   }
 }

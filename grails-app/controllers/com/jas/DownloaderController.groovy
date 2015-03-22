@@ -1,7 +1,10 @@
 package com.jas
 
 class DownloaderController {
+
   def downloadUbuntuVersion(){
-    render "ubuntu"
+    log.info "Getting request from: " + request.getRemoteAddr()
+    render request.getRemoteAddr()
   }
+
 }

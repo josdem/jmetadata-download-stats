@@ -14,6 +14,6 @@ class DownloaderControllerSpec extends Specification {
     controller.downloadUbuntuVersion()
 
     then:
-    response.text == 'ubuntu'
+    response.text == '127.0.0.1'
   }
 }

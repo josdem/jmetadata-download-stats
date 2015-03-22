@@ -2,13 +2,12 @@ package com.jas
 
 class DownloaderController {
 
+  def downloaderService
+
   def downloadUbuntuVersion(){
-    log.info "Getting request from: " + request.getRemoteAddr()
-    def downloader = new Downloader()
-    downloader.address = request.getRemoteAddr()
-    downloader.type = InstallerType.UBUNTU
-    downloader.save()
-    render "ubuntu"
+    log.info "Registring ubuntu stat from: " + request.getRemoteAddr()
+    downloaderService.createUbuntuStat(request.getRemoteAddr())
+    render request.getRemoteAddr()
   }
 
 }

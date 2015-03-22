@@ -8,12 +8,19 @@ import spock.lang.Specification
  */
 @TestFor(DownloaderController)
 class DownloaderControllerSpec extends Specification {
+  DownloaderService downloaderService = Mock(DownloaderService)
+  String address = "127.0.0.1"
+
+  def setup() {
+     controller.downloaderService = downloaderService
+  }
 
   void "should download Ubuntu"() {
     when:
     controller.downloadUbuntuVersion()
 
     then:
-    response.text == 'ubuntu'
+    1 * downloaderService.createUbuntuStat(address)
+    response.text == address
   }
 }

@@ -20,4 +20,13 @@ class DownloaderService {
     downloader.save()
     return downloader
   }
+
+  def Downloader createWindowsStat(String address){
+    def downloader = new Downloader()
+    downloader.address = address
+    downloader.type = InstallerType.WINDOWS
+    downloader.save()
+    return downloader
+  }
+
 }

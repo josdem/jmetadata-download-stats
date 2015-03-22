@@ -1,5 +1,7 @@
 package com.jas
 
 class DownloaderController {
-    static scaffold = true
+  def hello(){
+    render "hello"
+  }
 }

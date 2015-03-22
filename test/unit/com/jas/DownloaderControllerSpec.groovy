@@ -9,12 +9,11 @@ import spock.lang.Specification
 @TestFor(DownloaderController)
 class DownloaderControllerSpec extends Specification {
 
-    def setup() {
-    }
+  void "should say hello"() {
+    when:
+    controller.hello()
 
-    def cleanup() {
-    }
-
-    void "test something"() {
-    }
+    then:
+    response.text == 'hello'
+  }
 }

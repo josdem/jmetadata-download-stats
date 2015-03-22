@@ -32,4 +32,14 @@ class DownloaderControllerSpec extends Specification {
     1 * downloaderService.createMacStat(address)
     response.text == address
   }
+
+  void "should download Windows"() {
+    when: 
+    controller.downloadWindowsVersion()
+   
+    then:
+    1 * downloaderService.createWindowsStat(address)
+    response.text == address
+  }
+
 }

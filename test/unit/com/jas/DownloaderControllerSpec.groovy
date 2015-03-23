@@ -55,4 +55,12 @@ class DownloaderControllerSpec extends Specification {
     response.getHeader("Content-disposition") == "attachment;filename=JMetadata-Linux.zip"
   }
 
+  void "should render index"() {
+    when:
+    controller.index()
+
+    then:
+    response.text == "ok"
+  }
+
 }

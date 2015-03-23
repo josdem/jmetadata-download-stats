@@ -4,6 +4,10 @@ class DownloaderController {
 
   def downloaderService
 
+  def index(){
+    render "ok"
+  }
+
   def downloadUbuntuVersion(){
     log.info "Registring Ubuntu stat from: " + request.getRemoteAddr()
     downloaderService.createUbuntuStat(request.getRemoteAddr())

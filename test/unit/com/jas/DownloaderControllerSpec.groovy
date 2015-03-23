@@ -51,7 +51,8 @@ class DownloaderControllerSpec extends Specification {
    
     then:
     1 * downloaderService.createLinuxStat(address)
-    response.outputStream
+    response.contentType == "application/octet-stream"
+    response.getHeader("Content-disposition") == "attachment;filename=JMetadata-Linux.zip"
   }
 
 }

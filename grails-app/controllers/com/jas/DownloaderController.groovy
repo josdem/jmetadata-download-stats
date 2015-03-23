@@ -40,7 +40,12 @@ class DownloaderController {
   def downloadLinuxVersion() {
     log.info "Registring Linux stat from: " + request.getRemoteAddr()
     downloaderService.createLinuxStat(request.getRemoteAddr())
-    render request.getRemoteAddr()
+    
+    def file = new File("/home/josdem/.jmetadata/JMetadata-Linux.zip")    
+    response.setContentType("application/octet-stream")
+    response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
+
+    response.outputStream << file.newInputStream()
   }
 
 

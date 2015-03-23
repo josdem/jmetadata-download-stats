@@ -7,8 +7,8 @@ class DownloaderController {
   def downloadUbuntuVersion(){
     log.info "Registring Ubuntu stat from: " + request.getRemoteAddr()
     downloaderService.createUbuntuStat(request.getRemoteAddr())
-    def file = new File("file.pdf")    
-    log.info "path file: " + file.getAbsolutePath()
+
+    def file = new File("/home/josdem/.jmetadata/JMetadata.deb")    
     response.setContentType("application/octet-stream")
     response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
 

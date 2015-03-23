@@ -18,7 +18,12 @@ class DownloaderController {
   def downloadMacVersion() {
     log.info "Registring Mac stat from: " + request.getRemoteAddr()
     downloaderService.createMacStat(request.getRemoteAddr())
-    render request.getRemoteAddr()
+
+    def file = new File("/home/josdem/.jmetadata/JMetadata.dmg")    
+    response.setContentType("application/octet-stream")
+    response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
+
+    response.outputStream << file.newInputStream()
   }
 
   def downloadWindowsVersion() {

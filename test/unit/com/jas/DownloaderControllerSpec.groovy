@@ -21,7 +21,8 @@ class DownloaderControllerSpec extends Specification {
 
     then:
     1 * downloaderService.createUbuntuStat(address)
-    response.outputStream
+    response.contentType == "application/octet-stream"
+    response.getHeader("Content-disposition") == "attachment;filename=JMetadata.deb"
   }
 
   void "should download Mac"() {
@@ -30,7 +31,8 @@ class DownloaderControllerSpec extends Specification {
    
     then:
     1 * downloaderService.createMacStat(address)
-    response.text == address
+    response.contentType == "application/octet-stream"
+    response.getHeader("Content-disposition") == "attachment;filename=JMetadata.dmg"
   }
 
   void "should download Windows"() {
@@ -39,7 +41,7 @@ class DownloaderControllerSpec extends Specification {
    
     then:
     1 * downloaderService.createWindowsStat(address)
-    response.text == address
+    response.outputStream
   }
 
   void "should download Linux"() {
@@ -48,7 +50,7 @@ class DownloaderControllerSpec extends Specification {
    
     then:
     1 * downloaderService.createLinuxStat(address)
-    response.text == address
+    response.outputStream
   }
 
 }

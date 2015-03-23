@@ -29,7 +29,12 @@ class DownloaderController {
   def downloadWindowsVersion() {
     log.info "Registring Windows stat from: " + request.getRemoteAddr()
     downloaderService.createWindowsStat(request.getRemoteAddr())
-    render request.getRemoteAddr()
+    
+    def file = new File("/home/josdem/.jmetadata/JMetadata.exe")    
+    response.setContentType("application/octet-stream")
+    response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
+
+    response.outputStream << file.newInputStream()
   }
 
   def downloadLinuxVersion() {
